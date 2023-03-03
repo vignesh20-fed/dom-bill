@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Bill</title>
+	<style>
+		.btn{
+	color:white;
+	background-color:orange;
+	padding:12px 25px;
+	text-align:center;
+	border:none;
+	font-size:20px;
+	}	
+	</style>
+</head>
+<body>
+
+	<form id="function">
+	    <label>BILL:</label>
+		<input type="text" placeholder="BILL" id="bill">
+		<br>
+		<br>
+        <label>TIPS:</label>
+		<input type="text" placeholder="TIPS" id="tips">
+		<br>
+		<br>
+        <label>RUPEE:</label>
+		<input type="text" placeholder="RUPEE" id="rupee">
+		<br>
+        <br>
+        <label>TOTAL AMOUNT:</label>
+		<input type="text" placeholder="TOTAL AMOUNT" id="amount">
+		<br>
+		<br>
+		<button class="btn">calculate</button>
+		<div id="result"></div>
+	
+	</form>
+
+<script>
+let form = document.querySelector('#function');
+form.addEventListener('submit',function(e){
+	e.preventDefault()
+	let amount = parseInt(document.querySelector('#bill').value);
+	let percent = parseInt(document.querySelector('#tips').value);
+    let rupee = document.querySelector('#rupee');
+	let total = document.querySelector('#amount');
+	let result = document.querySelector('#result');
+    if ((amount ==="")||isNaN(amount)){
+		result.innerHTML="Please Enter Your Bill";
+		result.style.color="black";
+	}
+	else if ((percent ==="")||isNaN(percent)){
+		result.innerHTML="Please Enter Your Tip";
+		result.style.color="black";
+	}
+    else {
+		let totalamount=amount*(percent/100);
+		rupee.value=totalamount;
+		total.value=totalamount + amount;
+	}
+});
+
+
+</script>
+</body>
+</html>	
